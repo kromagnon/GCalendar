@@ -1,0 +1,72 @@
+
+   <!DOCTYPE html>
+   <html> 
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="GCalendar.css">    
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+        <script src="date.js" ></script>
+        <script src="GCalendar.js"></script>
+  
+        <script>
+            
+       
+
+       //setup calendar
+       $(function(){
+
+       
+
+        calendarclick = function(){
+           alert($(this).attr("data-date"));
+            
+
+        }
+        
+        whitecell = function(){
+            $(this).css("background","#A8A8A8");
+        }
+        redcell = function(){
+            $(this).css("background","#FF8888");
+        }
+        bluecell = function(){
+            $(this).css("background","#8888FF");
+        }
+
+
+        afterload = function(){
+            modifyDate("2013-6-4",whitecell);
+            modifyDate("2013-6-5",redcell);
+            modifyDate("2013-6-6",bluecell);
+
+        }
+            
+
+            BeCalendar = new Calendar($("#CalendarContainer"));
+            
+            
+            BeCalendar.sevendays = true;
+
+            BeCalendar.show();
+            BeCalendar.dateClick(calendarclick);
+            BeCalendar.dateStyle(afterload);
+
+
+        });
+
+        </script>
+
+       <style>
+       #CalendarContainer{
+        width:450px;
+        height:450px;
+       }
+       </style>
+    </head>
+    <body>
+    
+        <div id="CalendarContainer"></div>
+       
+    </body>
+</html>
